@@ -14,18 +14,18 @@ const Login = () => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('https://testbackend-production-c5e4.up.railway.app/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
         // Save token to localStorage
         localStorage.setItem('token', data.token);
@@ -44,7 +44,7 @@ const Login = () => {
     <>
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
-      
+
       <div className="login-container glass-panel">
         <div className="login-header">
           <div className="login-logo">
